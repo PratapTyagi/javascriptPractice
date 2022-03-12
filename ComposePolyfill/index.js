@@ -1,0 +1,20 @@
+const addTwo = (a) => {
+  return a + 2;
+};
+
+const multiplyFour = (a) => {
+  return a * 4;
+};
+
+const divideFive = (a) => {
+  return a / 5;
+};
+
+const composePolyfill = (...func) => {
+  return function (...args) {
+    return func.reduceRight((accumulator, fn) => fn(accumulator), args);
+  };
+};
+
+const res = composePolyfill(addTwo, multiplyFour, divideFive);
+console.log(res(10));
