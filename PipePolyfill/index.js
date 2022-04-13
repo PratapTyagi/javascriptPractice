@@ -12,7 +12,7 @@ const divideFive = (a) => {
 
 const pipePolyfill = (...func) => {
   return (...args) =>
-    func.reduce((accumulator, fn) => fn(accumulator), args[0]);
+    func.reduceRight((accumulator, fn) => fn(accumulator), args[0]);
 };
 
 const res = pipePolyfill(addTwo, multiplyFour, divideFive);
